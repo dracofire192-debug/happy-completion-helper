@@ -12,7 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as AppDashboardRouteImport } from './routes/_app/dashboard'
+import { Route as AppMarketRouteImport } from './routes/_app/market'
 import { Route as AppNutriGrowRouteImport } from './routes/_app/nutri-grow'
+import { Route as AppSuryaShaktiRouteImport } from './routes/_app/surya-shakti'
+import { Route as AppWeatherRouteImport } from './routes/_app/weather'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +31,79 @@ const AppDashboardRoute = AppDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AppRoute,
 } as any)
+const AppMarketRoute = AppMarketRouteImport.update({
+  id: '/market',
+  path: '/market',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppNutriGrowRoute = AppNutriGrowRouteImport.update({
   id: '/nutri-grow',
   path: '/nutri-grow',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSuryaShaktiRoute = AppSuryaShaktiRouteImport.update({
+  id: '/surya-shakti',
+  path: '/surya-shakti',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppWeatherRoute = AppWeatherRouteImport.update({
+  id: '/weather',
+  path: '/weather',
   getParentRoute: () => AppRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof AppDashboardRoute
+  '/market': typeof AppMarketRoute
   '/nutri-grow': typeof AppNutriGrowRoute
+  '/surya-shakti': typeof AppSuryaShaktiRoute
+  '/weather': typeof AppWeatherRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof AppDashboardRoute
+  '/market': typeof AppMarketRoute
   '/nutri-grow': typeof AppNutriGrowRoute
+  '/surya-shakti': typeof AppSuryaShaktiRoute
+  '/weather': typeof AppWeatherRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_app': typeof AppRouteWithChildren
   '/_app/dashboard': typeof AppDashboardRoute
+  '/_app/market': typeof AppMarketRoute
   '/_app/nutri-grow': typeof AppNutriGrowRoute
+  '/_app/surya-shakti': typeof AppSuryaShaktiRoute
+  '/_app/weather': typeof AppWeatherRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/nutri-grow'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/market'
+    | '/nutri-grow'
+    | '/surya-shakti'
+    | '/weather'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/nutri-grow'
-  id: '__root__' | '/' | '/_app' | '/_app/dashboard' | '/_app/nutri-grow'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/market'
+    | '/nutri-grow'
+    | '/surya-shakti'
+    | '/weather'
+  id:
+    | '__root__'
+    | '/'
+    | '/_app'
+    | '/_app/dashboard'
+    | '/_app/market'
+    | '/_app/nutri-grow'
+    | '/_app/surya-shakti'
+    | '/_app/weather'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -87,6 +134,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppDashboardRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/market': {
+      id: '/_app/market'
+      path: '/market'
+      fullPath: '/market'
+      preLoaderRoute: typeof AppMarketRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/nutri-grow': {
       id: '/_app/nutri-grow'
       path: '/nutri-grow'
@@ -94,17 +148,37 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppNutriGrowRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/surya-shakti': {
+      id: '/_app/surya-shakti'
+      path: '/surya-shakti'
+      fullPath: '/surya-shakti'
+      preLoaderRoute: typeof AppSuryaShaktiRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/weather': {
+      id: '/_app/weather'
+      path: '/weather'
+      fullPath: '/weather'
+      preLoaderRoute: typeof AppWeatherRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
   AppDashboardRoute: typeof AppDashboardRoute
+  AppMarketRoute: typeof AppMarketRoute
   AppNutriGrowRoute: typeof AppNutriGrowRoute
+  AppSuryaShaktiRoute: typeof AppSuryaShaktiRoute
+  AppWeatherRoute: typeof AppWeatherRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppDashboardRoute: AppDashboardRoute,
+  AppMarketRoute: AppMarketRoute,
   AppNutriGrowRoute: AppNutriGrowRoute,
+  AppSuryaShaktiRoute: AppSuryaShaktiRoute,
+  AppWeatherRoute: AppWeatherRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
