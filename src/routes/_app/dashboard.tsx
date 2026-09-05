@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader, StatCard, Gauge, AIInsightCard, StatusPill } from "@/components/krishi/widgets";
-import { farmer, fields, moistureTrend, CHART } from "@/components/krishi/page-data";
+import { farmer, fields, moistureTrend } from "@/lib/krishi-data";
+import { CHART } from "@/components/krishi/widgets";
 import {
   CloudRain, Droplets, Sun, TrendingUp, AlertTriangle, CloudSun,
   Sprout, IndianRupee, Sparkles, Leaf,
