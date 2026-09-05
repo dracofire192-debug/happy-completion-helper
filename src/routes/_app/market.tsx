@@ -170,7 +170,7 @@ function PricesTab() {
           </div>
         </div>
         <div className="mt-5 overflow-x-auto">
-          <table className="w-full min-w-[760px] text-left text-sm">
+          <table className="w-full min-w-full text-left text-sm">
             <thead className="border-b text-xs uppercase tracking-wide text-muted-foreground">
               <tr>
                 {["Crop / Market", "Average", "Min–Max", "Change", "Demand", "Stock"].map((h) => (

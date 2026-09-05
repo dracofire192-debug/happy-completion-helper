@@ -11,9 +11,16 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppRouteImport } from './routes/_app'
+import { Route as AppAiAssistantRouteImport } from './routes/_app/ai-assistant'
+import { Route as AppCommunityRouteImport } from './routes/_app/community'
 import { Route as AppDashboardRouteImport } from './routes/_app/dashboard'
+import { Route as AppEmpowermentRouteImport } from './routes/_app/empowerment'
 import { Route as AppMarketRouteImport } from './routes/_app/market'
+import { Route as AppMyFarmRouteImport } from './routes/_app/my-farm'
+import { Route as AppNotificationsRouteImport } from './routes/_app/notifications'
 import { Route as AppNutriGrowRouteImport } from './routes/_app/nutri-grow'
+import { Route as AppProfileRouteImport } from './routes/_app/profile'
+import { Route as AppSettingsRouteImport } from './routes/_app/settings'
 import { Route as AppSuryaShaktiRouteImport } from './routes/_app/surya-shakti'
 import { Route as AppWeatherRouteImport } from './routes/_app/weather'
 
@@ -26,9 +33,24 @@ const AppRoute = AppRouteImport.update({
   id: '/_app',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppAiAssistantRoute = AppAiAssistantRouteImport.update({
+  id: '/ai-assistant',
+  path: '/ai-assistant',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCommunityRoute = AppCommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppDashboardRoute = AppDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppEmpowermentRoute = AppEmpowermentRouteImport.update({
+  id: '/empowerment',
+  path: '/empowerment',
   getParentRoute: () => AppRoute,
 } as any)
 const AppMarketRoute = AppMarketRouteImport.update({
@@ -36,9 +58,29 @@ const AppMarketRoute = AppMarketRouteImport.update({
   path: '/market',
   getParentRoute: () => AppRoute,
 } as any)
+const AppMyFarmRoute = AppMyFarmRouteImport.update({
+  id: '/my-farm',
+  path: '/my-farm',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppNotificationsRoute = AppNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppNutriGrowRoute = AppNutriGrowRouteImport.update({
   id: '/nutri-grow',
   path: '/nutri-grow',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => AppRoute,
 } as any)
 const AppSuryaShaktiRoute = AppSuryaShaktiRouteImport.update({
@@ -54,17 +96,31 @@ const AppWeatherRoute = AppWeatherRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ai-assistant': typeof AppAiAssistantRoute
+  '/community': typeof AppCommunityRoute
   '/dashboard': typeof AppDashboardRoute
+  '/empowerment': typeof AppEmpowermentRoute
   '/market': typeof AppMarketRoute
+  '/my-farm': typeof AppMyFarmRoute
+  '/notifications': typeof AppNotificationsRoute
   '/nutri-grow': typeof AppNutriGrowRoute
+  '/profile': typeof AppProfileRoute
+  '/settings': typeof AppSettingsRoute
   '/surya-shakti': typeof AppSuryaShaktiRoute
   '/weather': typeof AppWeatherRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ai-assistant': typeof AppAiAssistantRoute
+  '/community': typeof AppCommunityRoute
   '/dashboard': typeof AppDashboardRoute
+  '/empowerment': typeof AppEmpowermentRoute
   '/market': typeof AppMarketRoute
+  '/my-farm': typeof AppMyFarmRoute
+  '/notifications': typeof AppNotificationsRoute
   '/nutri-grow': typeof AppNutriGrowRoute
+  '/profile': typeof AppProfileRoute
+  '/settings': typeof AppSettingsRoute
   '/surya-shakti': typeof AppSuryaShaktiRoute
   '/weather': typeof AppWeatherRoute
 }
@@ -72,9 +128,16 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_app': typeof AppRouteWithChildren
+  '/_app/ai-assistant': typeof AppAiAssistantRoute
+  '/_app/community': typeof AppCommunityRoute
   '/_app/dashboard': typeof AppDashboardRoute
+  '/_app/empowerment': typeof AppEmpowermentRoute
   '/_app/market': typeof AppMarketRoute
+  '/_app/my-farm': typeof AppMyFarmRoute
+  '/_app/notifications': typeof AppNotificationsRoute
   '/_app/nutri-grow': typeof AppNutriGrowRoute
+  '/_app/profile': typeof AppProfileRoute
+  '/_app/settings': typeof AppSettingsRoute
   '/_app/surya-shakti': typeof AppSuryaShaktiRoute
   '/_app/weather': typeof AppWeatherRoute
 }
@@ -82,26 +145,47 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/ai-assistant'
+    | '/community'
     | '/dashboard'
+    | '/empowerment'
     | '/market'
+    | '/my-farm'
+    | '/notifications'
     | '/nutri-grow'
+    | '/profile'
+    | '/settings'
     | '/surya-shakti'
     | '/weather'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/ai-assistant'
+    | '/community'
     | '/dashboard'
+    | '/empowerment'
     | '/market'
+    | '/my-farm'
+    | '/notifications'
     | '/nutri-grow'
+    | '/profile'
+    | '/settings'
     | '/surya-shakti'
     | '/weather'
   id:
     | '__root__'
     | '/'
     | '/_app'
+    | '/_app/ai-assistant'
+    | '/_app/community'
     | '/_app/dashboard'
+    | '/_app/empowerment'
     | '/_app/market'
+    | '/_app/my-farm'
+    | '/_app/notifications'
     | '/_app/nutri-grow'
+    | '/_app/profile'
+    | '/_app/settings'
     | '/_app/surya-shakti'
     | '/_app/weather'
   fileRoutesById: FileRoutesById
@@ -127,11 +211,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_app/ai-assistant': {
+      id: '/_app/ai-assistant'
+      path: '/ai-assistant'
+      fullPath: '/ai-assistant'
+      preLoaderRoute: typeof AppAiAssistantRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/community': {
+      id: '/_app/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof AppCommunityRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/dashboard': {
       id: '/_app/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof AppDashboardRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/empowerment': {
+      id: '/_app/empowerment'
+      path: '/empowerment'
+      fullPath: '/empowerment'
+      preLoaderRoute: typeof AppEmpowermentRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/market': {
@@ -141,11 +246,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppMarketRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/my-farm': {
+      id: '/_app/my-farm'
+      path: '/my-farm'
+      fullPath: '/my-farm'
+      preLoaderRoute: typeof AppMyFarmRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/notifications': {
+      id: '/_app/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof AppNotificationsRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/nutri-grow': {
       id: '/_app/nutri-grow'
       path: '/nutri-grow'
       fullPath: '/nutri-grow'
       preLoaderRoute: typeof AppNutriGrowRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/profile': {
+      id: '/_app/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/settings': {
+      id: '/_app/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/surya-shakti': {
@@ -166,17 +299,31 @@ declare module '@tanstack/react-router' {
 }
 
 interface AppRouteChildren {
+  AppAiAssistantRoute: typeof AppAiAssistantRoute
+  AppCommunityRoute: typeof AppCommunityRoute
   AppDashboardRoute: typeof AppDashboardRoute
+  AppEmpowermentRoute: typeof AppEmpowermentRoute
   AppMarketRoute: typeof AppMarketRoute
+  AppMyFarmRoute: typeof AppMyFarmRoute
+  AppNotificationsRoute: typeof AppNotificationsRoute
   AppNutriGrowRoute: typeof AppNutriGrowRoute
+  AppProfileRoute: typeof AppProfileRoute
+  AppSettingsRoute: typeof AppSettingsRoute
   AppSuryaShaktiRoute: typeof AppSuryaShaktiRoute
   AppWeatherRoute: typeof AppWeatherRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppAiAssistantRoute: AppAiAssistantRoute,
+  AppCommunityRoute: AppCommunityRoute,
   AppDashboardRoute: AppDashboardRoute,
+  AppEmpowermentRoute: AppEmpowermentRoute,
   AppMarketRoute: AppMarketRoute,
+  AppMyFarmRoute: AppMyFarmRoute,
+  AppNotificationsRoute: AppNotificationsRoute,
   AppNutriGrowRoute: AppNutriGrowRoute,
+  AppProfileRoute: AppProfileRoute,
+  AppSettingsRoute: AppSettingsRoute,
   AppSuryaShaktiRoute: AppSuryaShaktiRoute,
   AppWeatherRoute: AppWeatherRoute,
 }

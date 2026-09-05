@@ -211,7 +211,7 @@ function HourlyTab() {
           </div>
           <StatusPill tone="blue">Live forecast</StatusPill>
         </div>
-        <div className="h-64 min-w-[560px] overflow-x-auto">
+        <div className="h-64 min-w-full overflow-x-auto">
           <ResponsiveContainer width="100%" height="100%" minWidth={560}>
             <AreaChart data={hourly}>
               <defs>
