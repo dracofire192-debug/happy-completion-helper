@@ -195,7 +195,7 @@ function PricesTab() {
                     {min} – {max}
                   </td>
                   <td
-                    className={`px-3 py-4 font-bold ${change.startsWith("+") ? "text-primary" : "text-destructive"}`}
+                     className={`px-3 py-4 font-bold ${(change ?? "").startsWith("+") ? "text-primary" : "text-destructive"}`}
                   >
                     {change}
                   </td>

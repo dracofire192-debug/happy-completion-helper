@@ -333,7 +333,7 @@ function NearbyTab() {
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-extrabold text-primary-foreground">
               {name
                 .split(" ")
-                .map((part) => part[0])
+                 .map((part) => part?.[0] ?? "")
                 .join("")}
             </div>
             <div className="min-w-0 flex-1">
@@ -382,7 +382,7 @@ function MessagesTab() {
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
                 {name
                   .split(" ")
-                  .map((part) => part[0])
+                   .map((part) => part?.[0] ?? "")
                   .join("")}
               </span>
               <span className="min-w-0 flex-1">
@@ -479,7 +479,7 @@ function ExpertsTab() {
                   .split(" ")
                   .filter(Boolean)
                   .slice(-2)
-                  .map((part) => part[0])
+                   .map((part) => part?.[0] ?? "")
                   .join("")}
               </div>
               <StatusPill tone="green">{availability}</StatusPill>
