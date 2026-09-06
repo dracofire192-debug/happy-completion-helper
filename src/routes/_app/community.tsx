@@ -66,7 +66,14 @@ const initialPosts = [
 
 export const Route = createFileRoute("/_app/community")({
   validateSearch: z.object({ tab: z.string().optional() }),
-  head: () => ({ meta: [{ title: "Krishi Community | Krishi Mitra" }] }),
+  head: () => ({ meta: [
+    { title: "Krishi Community — Farmers Connected | Krishi Mitra" },
+    { name: "description", content: "Ask questions, share field knowledge and connect with farmers and experts across India." },
+    { property: "og:title", content: "Krishi Community — Farmers Connected" },
+    { property: "og:description", content: "Practical knowledge, farmer groups and trusted experts for Indian agriculture." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+  ] }),
   component: Community,
 });
 
