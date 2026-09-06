@@ -344,8 +344,8 @@ function NearbyTab() {
                 .join("")}
             </div>
             <div className="min-w-0 flex-1">
-              <h3 className="font-extrabold">
-                {name} <ShieldCheck className="ml-1 inline h-4 w-4 text-primary" />
+               <h3 className="font-extrabold">
+                 {name ?? "Farmer"} <ShieldCheck className="ml-1 inline h-4 w-4 text-primary" />
               </h3>
               <p className="mt-1 text-xs text-muted-foreground">
                 {distance} · {city}
@@ -393,7 +393,7 @@ function MessagesTab() {
                   .join("")}
               </span>
               <span className="min-w-0 flex-1">
-                <span className="block text-sm font-bold">{name}</span>
+                 <span className="block text-sm font-bold">{name ?? "Conversation"}</span>
                 <span className="mt-1 block truncate text-xs text-muted-foreground">{message}</span>
               </span>
               <span className="text-[10px] text-muted-foreground">{time}</span>
@@ -491,7 +491,7 @@ function ExpertsTab() {
               </div>
               <StatusPill tone="green">{availability}</StatusPill>
             </div>
-            <h3 className="mt-4 font-extrabold">{name}</h3>
+             <h3 className="mt-4 font-extrabold">{name ?? "Agriculture expert"}</h3>
             <p className="mt-1 text-xs text-muted-foreground">{role}</p>
             <p className="mt-3 text-xs font-semibold text-primary">{focus}</p>
             <div className="mt-4 flex items-center gap-1 text-sm font-bold">
